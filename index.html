@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert</title>
+    <link href="./style.css" rel="stylesheet">
+
+</head>
+<body>
+    <section class="first">
+        <div class="second">
+            <h1>Convert With JavaScript</h1>
+            <input type="number" class="Input" id="Input">
+            <form>
+                <label>Choose Any Symbol for convert from : </label>
+                <select name="Symbols1" id="Symbols1">
+                    <option >Meter</option>
+                    <option >Centimeter</option>
+                    <option >Kilometer</option>
+                </select>
+            </form>
+            <form>
+                <label>Choose Any Symbol for convert to : </label>
+                <select name="Symbols2" id="Symbols2">
+                    <option >Meter</option>
+                    <option >Centimeter</option>
+                    <option >Kilometer</option>
+                </select>
+            </form>
+            <button onclick="Display()">Click Here for get your Value</button>
+            <input type="text" placeholder="Your Result" class="Input2" id="Input2">
+            <button onclick="Clear()">Click Here for Delete this Operation</button>
+        </div>
+    </section>
+
+
+
+    <script>
+        const InputNumber=document.getElementById("Input"); 
+        const outputNumber=document.getElementById("Input2");
+        const InputSymbol=document.getElementById("Symbols1");
+        const outputSymbol=document.getElementById("Symbols2");
+        const result=document.querySelector("button");
+        function Clear(){
+            outputNumber.value="";
+            InputNumber.value="";
+        }
+        function Display(){
+                if(InputSymbol.value === outputSymbol.value)
+                    outputNumber.value=InputNumber.value;
+                else if(InputSymbol.value==="Kilometer" && outputSymbol.value==="Meter")
+                    outputNumber.value=InputNumber.value*1000;
+                else if(InputSymbol.value==="Kilometer" && outputSymbol.value==="Centimeter")
+                    outputNumber.value=InputNumber.value*100000;
+                else if(InputSymbol.value==="Meter" && outputSymbol.value==="Centimeter")
+                    outputNumber.value=InputNumber.value*100;
+                else if(InputSymbol.value==="Meter" && outputSymbol.value==="Kilometer")
+                    outputNumber.value=InputNumber.value/1000;
+                else if(InputSymbol.value==="Centimeter" && outputSymbol.value==="Kilometer")
+                    outputNumber.value=InputNumber.value/100000;
+                else if(InputSymbol.value==="Centimeter" && outputSymbol.value==="Meter")
+                    outputNumber.value=InputNumber.value/100;
+            }
+    </script>
+</body>
+</html>
